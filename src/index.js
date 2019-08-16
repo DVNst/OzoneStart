@@ -1,6 +1,6 @@
 'use strict';
 
-//checkbox
+//---begin style checkbox
 function toggleCheckbox() {
   const checkbox = document.querySelectorAll('.filter-check_checkbox');
 
@@ -14,8 +14,9 @@ function toggleCheckbox() {
     });
   });
 }
+//---end style checkbox
 
-//cart
+//---begin toggle cart
 function toggleCart() {
   const btnCart = document.getElementById('cart');
   const modalCart = document.querySelector('.cart');
@@ -31,8 +32,9 @@ function toggleCart() {
     document.body.style.overflow = '';
   });
 }
+//---end toggle cart
 
-//cart - add goods
+//---begin cart - add goods
 function addCart() {
   const cards = document.querySelectorAll('.goods .card');
   const cartWrapper = document.querySelector('.cart-wrapper');
@@ -76,8 +78,9 @@ function addCart() {
     }
   }
 }
+//---end cart - add goods
 
-//filters
+//---begin filters
 function actionPage() {
   const cards = document.querySelectorAll('.goods .card');
   const discountCheckbox = document.getElementById('discount-checkbox');
@@ -86,7 +89,7 @@ function actionPage() {
   const search = document.querySelector('.search-wrapper_input');
   const searchBtn = document.querySelector('.search-btn');
 
-  //filter discount and price
+  //--begin filter discount and price
   discountCheckbox.addEventListener('click', filters);
   min.addEventListener('change', filters);
   max.addEventListener('change', filters);
@@ -105,8 +108,9 @@ function actionPage() {
       }
     });
   }
+  //--end filter discount and price
 
-  //filter search
+  //---begin filter search
   searchBtn.addEventListener('click', () => {
     const searchText = new RegExp(search.value.trim(), 'i');
 
@@ -120,9 +124,11 @@ function actionPage() {
       }
     });
   });
+  //---end filter search
 }
+//---end filter
 
-//get data from server
+//---begin get data from server
 function getData() {
   const goodsWrapper = document.querySelector('.goods');
   return fetch('../db/db.json')
@@ -139,8 +145,9 @@ function getData() {
       goodsWrapper.innerHTML = '<div style="font-size:30px;">Упс, что-то пошло не так!</div>';
     });
 }
+//---end get data from server
 
-//render cards
+//---begin render cards
 function renderCards(data) {
   const goodsWrapper = document.querySelector('.goods');
 
@@ -163,9 +170,10 @@ function renderCards(data) {
     goodsWrapper.appendChild(card);
   })
 }
+//---end render cards
 
 //---begin render catalog
-function renderCatlog() {
+function renderCatalog() {
   const cards = document.querySelectorAll('.goods .card');
   const catalogList = document.querySelector('.catalog-list');
   const catalogBtn = document.querySelector('.catalog-button');
@@ -198,13 +206,14 @@ function renderCatlog() {
         }
       });
     }
+    actionPage();
   });
 }
 //---end render catalog
 
 getData().then((data) => {
   renderCards(data);
-  renderCatlog();
+  renderCatalog();
   toggleCheckbox();
   toggleCart();
   addCart();
