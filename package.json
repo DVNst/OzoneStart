@@ -1,0 +1,24 @@
+{
+  "name": "ozonestart",
+  "version": "1.0.0",
+  "description": "Glo Academy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DVNst/OzoneStart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DVNst/OzoneStart/issues"
+  },
+  "homepage": "https://github.com/DVNst/OzoneStart#readme",
+  "devDependencies": {
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
+  }
+}
